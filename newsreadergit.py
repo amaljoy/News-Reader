@@ -9,12 +9,12 @@ from mutagen.mp3 import MP3
     #defining function to play sound.
 def reader(s):
     tts = gTTS(text=s, lang='en')
-    tts.save("greeting.mp3")
-    p = vlc.MediaPlayer("greeting.mp3")
+    tts.save("greeting.mp3")                  #saving as mp3 file
+    p = vlc.MediaPlayer("greeting.mp3")       #loading to media player
     f = MP3("greeting.mp3")
-    n = f.info.length
-    p.play()
-    time.sleep(n)
+    n = f.info.length                         #getting duration of sound file
+    p.play()                                  #Playing sound
+    time.sleep(n)                             #Sleeping for sub subprocess to take place
 
     #connecting to news site
 sauce = urllib.request.urlopen('https://news.google.co.in/').read()
@@ -23,7 +23,7 @@ b=soup.body
 y=''
 m=''
 
-m="hello boss, you should check out following news \n"
+m="hello boss, you should check out following news \n"              
 reader(m)
 
     #Webscraping text news with class esc-lead-title-wrapper
